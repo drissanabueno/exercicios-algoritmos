@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.6">
+  <attributes>
+    <attribute name="name" value="EP1 - Leitura dos dados"/>
+    <attribute name="authors" value="Drissana Rotermel Bueno - 49338218"/>
+    <attribute name="about" value="Leitura dos tres produtos"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="nomeProduto1" type="String" array="False" size=""/>
+      <declare name="precoAnterior1" type="Real" array="False" size=""/>
+      <declare name="precoAtual1" type="Real" array="False" size=""/>
+      <declare name="nomeProduto2" type="String" array="False" size=""/>
+      <declare name="precoAnterior2" type="Real" array="False" size=""/>
+      <declare name="precoAtual2" type="Real" array="False" size=""/>
+      <declare name="nomeProduto3" type="String" array="False" size=""/>
+      <declare name="precoAnterior3" type="Real" array="False" size=""/>
+      <declare name="precoAtual3" type="Real" array="False" size=""/>
+      <output expression="&quot;=== Monitoramento de precos da cesta basica ===&quot;" newline="True"/>
+      <output expression="&quot;Digite o nome do produto 1: &quot;" newline="True"/>
+      <input variable="nomeProduto1"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto1 &amp; &quot; no mes anterior (R$): &quot;" newline="True"/>
+      <input variable="precoAnterior1"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto1 &amp; &quot; no mes atual (R$): &quot;" newline="True"/>
+      <input variable="precoAtual1"/>
+      <output expression="&quot;Digite o nome do produto 2: &quot;" newline="True"/>
+      <input variable="nomeProduto2"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto2 &amp; &quot; no mes anterior (R$): &quot;" newline="True"/>
+      <input variable="precoAnterior2"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto2 &amp; &quot; no mes atual (R$): &quot;" newline="True"/>
+      <input variable="precoAtual2"/>
+      <output expression="&quot;Digite o nome do produto 3: &quot;" newline="True"/>
+      <input variable="nomeProduto3"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto3 &amp; &quot; no mes anterior (R$): &quot;" newline="True"/>
+      <input variable="precoAnterior3"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto3 &amp; &quot; no mes atual (R$): &quot;" newline="True"/>
+      <input variable="precoAtual3"/>
+      <output expression="&quot;Dados lidos: &quot; &amp; nomeProduto1 &amp; &quot; | anterior R$ &quot; &amp; precoAnterior1 &amp; &quot; | atual R$ &quot; &amp; precoAtual1" newline="True"/>
+      <output expression="&quot;Dados lidos: &quot; &amp; nomeProduto2 &amp; &quot; | anterior R$ &quot; &amp; precoAnterior2 &amp; &quot; | atual R$ &quot; &amp; precoAtual2" newline="True"/>
+      <output expression="&quot;Dados lidos: &quot; &amp; nomeProduto3 &amp; &quot; | anterior R$ &quot; &amp; precoAnterior3 &amp; &quot; | atual R$ &quot; &amp; precoAtual3" newline="True"/>
+    </body>
+  </function>
+</flowgorithm>

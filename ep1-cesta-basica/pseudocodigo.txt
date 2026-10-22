@@ -1,0 +1,119 @@
+// Monitoramento do preco da cesta basica (EP 1)
+// Le tres produtos, calcula a variacao de preco de um mes para o outro,
+// classifica em AUMENTO, QUEDA ou ESTAVEL e avisa quando o aumento passa de 10%.
+
+// ---------- 1. Leitura ----------
+escreva("=== Monitoramento de precos da cesta basica ===")
+
+escreva("Digite o nome do produto 1: ")
+leia(nome_produto1)
+escreva("Digite o preco de ", nome_produto1, " no mes anterior (R$): ")
+leia(preco_anterior1)
+escreva("Digite o preco de ", nome_produto1, " no mes atual (R$): ")
+leia(preco_atual1)
+
+escreva("Digite o nome do produto 2: ")
+leia(nome_produto2)
+escreva("Digite o preco de ", nome_produto2, " no mes anterior (R$): ")
+leia(preco_anterior2)
+escreva("Digite o preco de ", nome_produto2, " no mes atual (R$): ")
+leia(preco_atual2)
+
+escreva("Digite o nome do produto 3: ")
+leia(nome_produto3)
+escreva("Digite o preco de ", nome_produto3, " no mes anterior (R$): ")
+leia(preco_anterior3)
+escreva("Digite o preco de ", nome_produto3, " no mes atual (R$): ")
+leia(preco_atual3)
+
+// ---------- 2. Calculo da variacao ----------
+se (preco_anterior1 > 0) entao
+    variacao1 <- ((preco_atual1 - preco_anterior1) / preco_anterior1) * 100
+senao
+    variacao1 <- 0
+    escreva("Erro: o preco anterior de ", nome_produto1, " precisa ser maior que zero.")
+fimse
+
+se (preco_anterior2 > 0) entao
+    variacao2 <- ((preco_atual2 - preco_anterior2) / preco_anterior2) * 100
+senao
+    variacao2 <- 0
+    escreva("Erro: o preco anterior de ", nome_produto2, " precisa ser maior que zero.")
+fimse
+
+se (preco_anterior3 > 0) entao
+    variacao3 <- ((preco_atual3 - preco_anterior3) / preco_anterior3) * 100
+senao
+    variacao3 <- 0
+    escreva("Erro: o preco anterior de ", nome_produto3, " precisa ser maior que zero.")
+fimse
+
+// ---------- 3. Classificacao ----------
+se (variacao1 > 0) entao
+    situacao1 <- "AUMENTO"
+senao
+    se (variacao1 < 0) entao
+        situacao1 <- "QUEDA"
+    senao
+        situacao1 <- "ESTAVEL"
+    fimse
+fimse
+
+se (variacao2 > 0) entao
+    situacao2 <- "AUMENTO"
+senao
+    se (variacao2 < 0) entao
+        situacao2 <- "QUEDA"
+    senao
+        situacao2 <- "ESTAVEL"
+    fimse
+fimse
+
+se (variacao3 > 0) entao
+    situacao3 <- "AUMENTO"
+senao
+    se (variacao3 < 0) entao
+        situacao3 <- "QUEDA"
+    senao
+        situacao3 <- "ESTAVEL"
+    fimse
+fimse
+
+// ---------- 4. Exibicao, com o alerta de aumento abusivo ----------
+escreva("========== RESULTADO DO MONITORAMENTO ==========")
+
+escreva("Produto: ", nome_produto1)
+escreva("Preco no mes anterior: R$ ", preco_anterior1)
+escreva("Preco no mes atual: R$ ", preco_atual1)
+escreva("Variacao: ", variacao1, "%")
+escreva("Situacao: ", situacao1)
+se (situacao1 = "AUMENTO") entao
+    se (variacao1 > 10) entao
+        escreva("ALERTA: aumento abusivo de ", nome_produto1, " (acima de 10% no mes)")
+    fimse
+fimse
+escreva("------------------------------------------------")
+
+escreva("Produto: ", nome_produto2)
+escreva("Preco no mes anterior: R$ ", preco_anterior2)
+escreva("Preco no mes atual: R$ ", preco_atual2)
+escreva("Variacao: ", variacao2, "%")
+escreva("Situacao: ", situacao2)
+se (situacao2 = "AUMENTO") entao
+    se (variacao2 > 10) entao
+        escreva("ALERTA: aumento abusivo de ", nome_produto2, " (acima de 10% no mes)")
+    fimse
+fimse
+escreva("------------------------------------------------")
+
+escreva("Produto: ", nome_produto3)
+escreva("Preco no mes anterior: R$ ", preco_anterior3)
+escreva("Preco no mes atual: R$ ", preco_atual3)
+escreva("Variacao: ", variacao3, "%")
+escreva("Situacao: ", situacao3)
+se (situacao3 = "AUMENTO") entao
+    se (variacao3 > 10) entao
+        escreva("ALERTA: aumento abusivo de ", nome_produto3, " (acima de 10% no mes)")
+    fimse
+fimse
+escreva("------------------------------------------------")

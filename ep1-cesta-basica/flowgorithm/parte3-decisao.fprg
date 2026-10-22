@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.6">
+  <attributes>
+    <attribute name="name" value="EP1 - Decisao para classificacao"/>
+    <attribute name="authors" value="Drissana Rotermel Bueno - 49338218"/>
+    <attribute name="about" value="AUMENTO, QUEDA ou ESTAVEL, com alerta de aumento abusivo acima de 10%"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="nomeProduto1" type="String" array="False" size=""/>
+      <declare name="precoAnterior1" type="Real" array="False" size=""/>
+      <declare name="precoAtual1" type="Real" array="False" size=""/>
+      <declare name="variacao1" type="Real" array="False" size=""/>
+      <declare name="situacao1" type="String" array="False" size=""/>
+      <declare name="nomeProduto2" type="String" array="False" size=""/>
+      <declare name="precoAnterior2" type="Real" array="False" size=""/>
+      <declare name="precoAtual2" type="Real" array="False" size=""/>
+      <declare name="variacao2" type="Real" array="False" size=""/>
+      <declare name="situacao2" type="String" array="False" size=""/>
+      <declare name="nomeProduto3" type="String" array="False" size=""/>
+      <declare name="precoAnterior3" type="Real" array="False" size=""/>
+      <declare name="precoAtual3" type="Real" array="False" size=""/>
+      <declare name="variacao3" type="Real" array="False" size=""/>
+      <declare name="situacao3" type="String" array="False" size=""/>
+      <output expression="&quot;=== Monitoramento de precos da cesta basica ===&quot;" newline="True"/>
+      <output expression="&quot;Digite o nome do produto 1: &quot;" newline="True"/>
+      <input variable="nomeProduto1"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto1 &amp; &quot; no mes anterior (R$): &quot;" newline="True"/>
+      <input variable="precoAnterior1"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto1 &amp; &quot; no mes atual (R$): &quot;" newline="True"/>
+      <input variable="precoAtual1"/>
+      <output expression="&quot;Digite o nome do produto 2: &quot;" newline="True"/>
+      <input variable="nomeProduto2"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto2 &amp; &quot; no mes anterior (R$): &quot;" newline="True"/>
+      <input variable="precoAnterior2"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto2 &amp; &quot; no mes atual (R$): &quot;" newline="True"/>
+      <input variable="precoAtual2"/>
+      <output expression="&quot;Digite o nome do produto 3: &quot;" newline="True"/>
+      <input variable="nomeProduto3"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto3 &amp; &quot; no mes anterior (R$): &quot;" newline="True"/>
+      <input variable="precoAnterior3"/>
+      <output expression="&quot;Digite o preco de &quot; &amp; nomeProduto3 &amp; &quot; no mes atual (R$): &quot;" newline="True"/>
+      <input variable="precoAtual3"/>
+      <if expression="precoAnterior1 &gt; 0">
+        <then>
+          <assign variable="variacao1" expression="((precoAtual1 - precoAnterior1) / precoAnterior1) * 100"/>
+        </then>
+        <else>
+          <assign variable="variacao1" expression="0"/>
+          <output expression="&quot;Erro: o preco anterior de &quot; &amp; nomeProduto1 &amp; &quot; precisa ser maior que zero.&quot;" newline="True"/>
+        </else>
+      </if>
+      <if expression="precoAnterior2 &gt; 0">
+        <then>
+          <assign variable="variacao2" expression="((precoAtual2 - precoAnterior2) / precoAnterior2) * 100"/>
+        </then>
+        <else>
+          <assign variable="variacao2" expression="0"/>
+          <output expression="&quot;Erro: o preco anterior de &quot; &amp; nomeProduto2 &amp; &quot; precisa ser maior que zero.&quot;" newline="True"/>
+        </else>
+      </if>
+      <if expression="precoAnterior3 &gt; 0">
+        <then>
+          <assign variable="variacao3" expression="((precoAtual3 - precoAnterior3) / precoAnterior3) * 100"/>
+        </then>
+        <else>
+          <assign variable="variacao3" expression="0"/>
+          <output expression="&quot;Erro: o preco anterior de &quot; &amp; nomeProduto3 &amp; &quot; precisa ser maior que zero.&quot;" newline="True"/>
+        </else>
+      </if>
+      <if expression="variacao1 &gt; 0">
+        <then>
+          <assign variable="situacao1" expression="&quot;AUMENTO&quot;"/>
+        </then>
+        <else>
+          <if expression="variacao1 &lt; 0">
+            <then>
+              <assign variable="situacao1" expression="&quot;QUEDA&quot;"/>
+            </then>
+            <else>
+              <assign variable="situacao1" expression="&quot;ESTAVEL&quot;"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if expression="variacao2 &gt; 0">
+        <then>
+          <assign variable="situacao2" expression="&quot;AUMENTO&quot;"/>
+        </then>
+        <else>
+          <if expression="variacao2 &lt; 0">
+            <then>
+              <assign variable="situacao2" expression="&quot;QUEDA&quot;"/>
+            </then>
+            <else>
+              <assign variable="situacao2" expression="&quot;ESTAVEL&quot;"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if expression="variacao3 &gt; 0">
+        <then>
+          <assign variable="situacao3" expression="&quot;AUMENTO&quot;"/>
+        </then>
+        <else>
+          <if expression="variacao3 &lt; 0">
+            <then>
+              <assign variable="situacao3" expression="&quot;QUEDA&quot;"/>
+            </then>
+            <else>
+              <assign variable="situacao3" expression="&quot;ESTAVEL&quot;"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <output expression="nomeProduto1 &amp; &quot;: variacao &quot; &amp; variacao1 &amp; &quot;% -&gt; &quot; &amp; situacao1" newline="True"/>
+      <if expression="situacao1 = &quot;AUMENTO&quot;">
+        <then>
+          <if expression="variacao1 &gt; 10">
+            <then>
+              <output expression="&quot;ALERTA: aumento abusivo de &quot; &amp; nomeProduto1 &amp; &quot; (acima de 10% no mes)&quot;" newline="True"/>
+            </then>
+            <else>
+            </else>
+          </if>
+        </then>
+        <else>
+        </else>
+      </if>
+      <output expression="nomeProduto2 &amp; &quot;: variacao &quot; &amp; variacao2 &amp; &quot;% -&gt; &quot; &amp; situacao2" newline="True"/>
+      <if expression="situacao2 = &quot;AUMENTO&quot;">
+        <then>
+          <if expression="variacao2 &gt; 10">
+            <then>
+              <output expression="&quot;ALERTA: aumento abusivo de &quot; &amp; nomeProduto2 &amp; &quot; (acima de 10% no mes)&quot;" newline="True"/>
+            </then>
+            <else>
+            </else>
+          </if>
+        </then>
+        <else>
+        </else>
+      </if>
+      <output expression="nomeProduto3 &amp; &quot;: variacao &quot; &amp; variacao3 &amp; &quot;% -&gt; &quot; &amp; situacao3" newline="True"/>
+      <if expression="situacao3 = &quot;AUMENTO&quot;">
+        <then>
+          <if expression="variacao3 &gt; 10">
+            <then>
+              <output expression="&quot;ALERTA: aumento abusivo de &quot; &amp; nomeProduto3 &amp; &quot; (acima de 10% no mes)&quot;" newline="True"/>
+            </then>
+            <else>
+            </else>
+          </if>
+        </then>
+        <else>
+        </else>
+      </if>
+    </body>
+  </function>
+</flowgorithm>
