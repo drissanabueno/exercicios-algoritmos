@@ -6,6 +6,7 @@ Experiências práticas da disciplina **Algoritmos e Pensamento Computacional** 
 |---|---|---|
 | [`ep1-cesta-basica`](ep1-cesta-basica/) | EP 1: monitoramento do preço da cesta básica em pseudocódigo, com fluxograma | Portugol, Flowgorithm |
 | [`ep2-caixa-eletronico`](ep2-caixa-eletronico/) | EP 2: caixa eletrônico em C com menu, decisões e validação de entradas | C, GCC |
+| [`ep3-pedagio`](ep3-pedagio/) | EP 3: fluxo semanal de um pedágio com vetor, matriz e laços `for` | C, GCC |
 
 ## EP 1: monitoramento da cesta básica
 
@@ -49,4 +50,20 @@ Para compilar e rodar:
 ```bash
 gcc ep2-caixa-eletronico/caixa.c -o caixa
 ./caixa
+```
+
+## EP 3: controle de pedágio
+
+O programa lê quantos carros passaram em cada dia de uma semana e mostra um relatório com o total, a média por dia e o dia de maior movimento.
+
+- `int carros[7]` guarda a quantidade de cada dia e `char dias[7][10]` guarda os nomes; os dois usam o mesmo índice `i`
+- Três laços `for`: leitura, processamento (soma e busca do pico) e exibição
+- A leitura recusa letra e número negativo e pergunta de novo o mesmo dia
+- A tabela usa largura fixa no `printf` (`%-10s`, `%8d`) e o dia de pico sai em amarelo e negrito, com a marca `<-- PICO` (o desafio bônus do cenário)
+
+Testado com uma semana de pico no sábado e com outra de pico na segunda, o primeiro dia do vetor ([prints](ep3-pedagio/prints/)).
+
+```bash
+gcc ep3-pedagio/pedagio.c -o pedagio
+./pedagio
 ```
