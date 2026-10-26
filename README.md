@@ -7,6 +7,7 @@ Experiências práticas da disciplina **Algoritmos e Pensamento Computacional** 
 | [`ep1-cesta-basica`](ep1-cesta-basica/) | EP 1: monitoramento do preço da cesta básica em pseudocódigo, com fluxograma | Portugol, Flowgorithm |
 | [`ep2-caixa-eletronico`](ep2-caixa-eletronico/) | EP 2: caixa eletrônico em C com menu, decisões e validação de entradas | C, GCC |
 | [`ep3-pedagio`](ep3-pedagio/) | EP 3: fluxo semanal de um pedágio com vetor, matriz e laços `for` | C, GCC |
+| [`ep4-ordenacao-precos`](ep4-ordenacao-precos/) | EP 4: preços de supermercado ordenados com Bubble Sort, em ordem crescente e decrescente | C, GCC |
 
 ## EP 1: monitoramento da cesta básica
 
@@ -66,4 +67,28 @@ Testado com uma semana de pico no sábado e com outra de pico na segunda, o prim
 ```bash
 gcc ep3-pedagio/pedagio.c -o pedagio
 ./pedagio
+```
+
+## EP 4: ordenação de preços com Bubble Sort
+
+O programa guarda os preços de 10 produtos de supermercado e mostra a lista três vezes: na ordem original, do mais barato para o mais caro e do mais caro para o mais barato.
+
+- `float precos[10]` guarda os preços (o tipo `float` por causa dos centavos) e `char produtos[10][20]` guarda os nomes, na mesma posição
+- A ordenação usa Bubble Sort: um `for` dentro de outro compara vizinhos e troca os dois de lugar com a ajuda de uma variável temporária
+- A cada troca de preço, o nome troca junto (`strcpy`), para a lista ordenada continuar dizendo qual produto custa quanto
+- A ordem decrescente usa o mesmo código, só com `<` no lugar de `>` na comparação
+
+Saída de uma execução ([print](ep4-ordenacao-precos/prints/)):
+
+```
+--- Ordem crescente (mais barato primeiro) ---
+Macarrao 500g   R$   4.39
+Acucar 1kg      R$   4.79
+...
+Arroz 5kg       R$  24.90
+```
+
+```bash
+gcc ep4-ordenacao-precos/precos.c -o precos
+./precos
 ```
